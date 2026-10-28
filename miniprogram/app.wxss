@@ -1,0 +1,132 @@
+/* 全局样式：布局清晰可操作即可 */
+page {
+  background-color: #f5f6f7;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.container {
+  padding: 24rpx;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.card-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-bottom: 16rpx;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  background: #1f7a4d;
+  color: #fff;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  padding: 18rpx 0;
+  text-align: center;
+}
+
+.btn.plain {
+  background: #fff;
+  color: #1f7a4d;
+  border: 1rpx solid #1f7a4d;
+}
+
+.btn.disabled {
+  background: #bbb;
+  color: #fff;
+}
+
+.btn.danger {
+  background: #d9534f;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 22rpx;
+  padding: 4rpx 14rpx;
+  border-radius: 8rpx;
+}
+
+.tag.green {
+  background: #e7f6ee;
+  color: #1f7a4d;
+}
+
+.tag.gray {
+  background: #f0f0f0;
+  color: #999;
+}
+
+.tag.red {
+  background: #fdecea;
+  color: #d9534f;
+}
+
+.empty {
+  text-align: center;
+  color: #999;
+  padding: 60rpx 0;
+  font-size: 28rpx;
+}
+
+.banner {
+  background: #fdecea;
+  color: #d9534f;
+  padding: 20rpx 24rpx;
+  border-radius: 12rpx;
+  margin-bottom: 24rpx;
+  font-size: 26rpx;
+}
+
+.cell {
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cell:last-child {
+  border-bottom: none;
+}
+
+.form-item {
+  margin-bottom: 24rpx;
+}
+
+.form-label {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 12rpx;
+}
+
+.form-input {
+  background: #fff;
+  border: 1rpx solid #e5e5e5;
+  border-radius: 12rpx;
+  padding: 16rpx 20rpx;
+  font-size: 28rpx;
+}
+
+.text-muted {
+  color: #999;
+  font-size: 24rpx;
+}

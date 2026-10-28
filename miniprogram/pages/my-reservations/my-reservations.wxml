@@ -1,0 +1,13 @@
+<view class="container">
+  <view class="card" wx:for="{{list}}" wx:key="res_id">
+    <view class="space-between">
+      <text style="font-weight: 600;">{{item.venue_type_name}} {{item.court_no}}号</text>
+      <text class="tag {{item.status === 'pending' ? 'green' : (item.status === 'checked_in' ? 'green' : 'gray')}}">{{item.statusText}}</text>
+    </view>
+    <view class="text-muted" style="margin-top: 8rpx;">{{item.date}} {{item.slot_key}}</view>
+    <view class="row" style="justify-content: flex-end; margin-top: 16rpx;" wx:if="{{item.cancelable}}">
+      <view class="btn plain danger" style="padding: 8rpx 24rpx;" data-id="{{item.res_id}}" bindtap="cancel">取消预约</view>
+    </view>
+  </view>
+  <view class="empty" wx:if="{{!list.length}}">暂无预约记录</view>
+</view>

@@ -1,0 +1,9 @@
+.menu {
+  padding: 28rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+  font-size: 30rpx;
+}
+
+.menu:last-child {
+  border-bottom: none;
+}

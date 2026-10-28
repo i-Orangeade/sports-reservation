@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="banner" wx:if="{{blackDays > 0}}">您已被限制预约，{{blackDays}} 天内不可预约场馆</view>
+
+  <view class="card" wx:if="{{role === 0}}">
+    <view class="card-title">完善信息</view>
+    <view class="text-muted">完善个人信息后可预约场馆</view>
+    <view class="btn" style="margin-top: 20rpx;" bindtap="goProfile">去完善信息</view>
+  </view>
+
+  <view class="venue-grid">
+    <view class="venue-card" wx:for="{{venues}}" wx:key="venue_type" data-type="{{item.venue_type}}" bindtap="onTapVenue">
+      <view class="venue-name">{{item.venue_type_name}}</view>
+      <view class="venue-count">{{item.count}} 个场地</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="quick-row" bindtap="goQrcode">
+      <text>我的动态二维码</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="quick-row" bindtap="goReservations">
+      <text>我的预约</text>
+      <text class="arrow">›</text>
+    </view>
+    <view class="quick-row" bindtap="goNotice">
+      <text>公告</text>
+      <text class="arrow">›</text>
+    </view>
+  </view>
+
+  <view class="text-muted" style="text-align:center; padding: 20rpx;">
+    每天 21:00 开放次日场次预约
+  </view>
+</view>
+
+<notice-modal show="{{showNotice}}" notice="{{notice}}" bind:close="onCloseNotice" />

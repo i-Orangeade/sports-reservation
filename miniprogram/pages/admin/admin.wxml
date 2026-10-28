@@ -1,0 +1,21 @@
+<view class="container">
+  <view class="card">
+    <view class="card-title">{{roleName}} · 管理后台</view>
+  </view>
+
+  <view class="card" wx:if="{{role >= 2}}">
+    <view class="menu" data-url="/pages/admin/checkin/checkin" bindtap="nav">扫码签到</view>
+    <view class="menu" data-url="/pages/admin/blacklist/blacklist" bindtap="nav">黑名单管理</view>
+    <view class="menu" data-url="/pages/admin/notice-mgr/notice-mgr" bindtap="nav">公告管理</view>
+    <view class="menu" data-url="/pages/admin/checkin-records/checkin-records" bindtap="nav">签到记录</view>
+  </view>
+
+  <view class="card" wx:if="{{role >= 3}}">
+    <view class="menu" data-url="/pages/admin/venue-close/venue-close" bindtap="nav">场地闭馆</view>
+    <view class="menu" data-url="/pages/admin/logs/logs" bindtap="nav">系统日志</view>
+  </view>
+
+  <view class="card" wx:if="{{role >= 4}}">
+    <view class="menu" data-url="/pages/admin/hr/hr" bindtap="nav">人事管理</view>
+  </view>
+</view>

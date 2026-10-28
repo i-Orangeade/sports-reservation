@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="card">
+    <view class="type-tabs">
+      <view class="type-tab {{activeType === item.key ? 'active' : ''}}" wx:for="{{types}}" wx:key="key" data-key="{{item.key}}" bindtap="onTapType">{{item.name}}</view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="court-grid">
+      <view class="court {{item.closed ? 'closed' : ''}}" wx:for="{{list}}" wx:key="venue_key">
+        <view>{{item.court_no}}号</view>
+        <view class="court-status">{{item.closed ? '闭馆中' : '开放中'}}</view>
+        <view class="op-btn" data-key="{{item.venue_key}}" data-closed="{{item.closed}}" bindtap="toggle">
+          {{item.closed ? '恢复' : '闭馆'}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

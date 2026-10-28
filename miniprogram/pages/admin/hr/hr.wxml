@@ -1,0 +1,90 @@
+<view class="container">
+  <view class="type-tabs" style="margin-bottom: 24rpx;">
+    <view class="type-tab {{tab === 'admin' ? 'active' : ''}}" data-tab="admin" bindtap="switchTab">管理员管理</view>
+    <view class="type-tab {{tab === 'student' ? 'active' : ''}}" data-tab="student" bindtap="switchTab">学生管理</view>
+  </view>
+
+  <!-- 管理员管理 -->
+  <block wx:if="{{tab === 'admin'}}">
+    <view class="btn" bindtap="toggleAdd">{{showAdd ? '收起' : '+ 任免管理员'}}</view>
+
+    <view class="card" wx:if="{{showAdd}}">
+      <view class="form-item">
+        <view class="form-label">openid</view>
+        <input class="form-input" value="{{adminForm.openid}}" data-field="openid" bindinput="onAdminInput" placeholder="输入 openid" />
+      </view>
+      <view class="form-item">
+        <view class="form-label">角色</view>
+        <radio-group bindchange="onAdminInput" data-field="role">
+          <label style="margin-right: 24rpx;"><radio value="2" checked="{{adminForm.role == 2}}" />普通管理员</label>
+          <label><radio value="3" checked="{{adminForm.role == 3}}" />超级管理员</label>
+        </radio-group>
+      </view>
+      <view class="form-item">
+        <view class="form-label">姓名（选填）</view>
+        <input class="form-input" value="{{adminForm.name}}" data-field="name" bindinput="onAdminInput" placeholder="姓名" />
+      </view>
+      <view class="btn" bindtap="addAdmin">确认任免</view>
+    </view>
+
+    <view class="card" wx:for="{{admins}}" wx:key="_id">
+      <view class="space-between">
+        <text style="font-weight: 600;">{{item.name || item._id}}</text>
+        <view>
+          <text class="tag green">{{item.roleText}}</text>
+          <text class="tag {{item.status === 1 ? 'green' : 'gray'}}" style="margin-left: 8rpx;">{{item.status === 1 ? '正常' : '已禁用'}}</text>
+        </view>
+      </view>
+      <view class="text-muted" style="margin-top: 8rpx;">{{item._id}}</view>
+      <view class="row" style="justify-content: flex-end; gap: 12rpx; margin-top: 12rpx;" wx:if="{{item.role <= 3}}">
+        <view class="btn plain" style="padding: 8rpx 20rpx;" data-openid="{{item._id}}" data-status="{{item.status}}" data-role="{{item.role}}" bindtap="toggleStatus">{{item.status === 1 ? '禁用' : '启用'}}</view>
+        <view class="btn plain" style="padding: 8rpx 20rpx;" data-openid="{{item._id}}" data-status="{{item.status}}" data-role="{{item.role}}" bindtap="assignRole">{{item.role === 2 ? '升为超管' : '降为普管'}}</view>
+        <view class="btn danger" style="padding: 8rpx 20rpx;" data-openid="{{item._id}}" bindtap="removeAdmin">移除</view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 学生管理 -->
+  <block wx:if="{{tab === 'student'}}">
+    <view class="card">
+      <view class="row" style="gap: 16rpx;">
+        <input class="form-input" style="flex:1;" value="{{keyword}}" bindinput="onKeyword" placeholder="按姓名/学号搜索" />
+        <view class="btn" style="padding: 16rpx 32rpx;" bindtap="search">搜索</view>
+      </view>
+    </view>
+
+    <view class="card" wx:for="{{students}}" wx:key="_id">
+      <view class="space-between">
+        <text style="font-weight: 600;">{{item.name}}</text>
+        <view class="tag green" data-openid="{{item._id}}" bindtap="editStudentTap">编辑</view>
+      </view>
+      <view class="text-muted" style="margin-top: 8rpx;">{{item.student_no}} · {{item.college}} · {{item.phone}}</view>
+    </view>
+    <view class="empty" wx:if="{{!students.length}}">暂无学生</view>
+  </block>
+
+  <!-- 学生编辑弹层 -->
+  <view class="card" wx:if="{{editStudent}}">
+    <view class="card-title">编辑学生</view>
+    <view class="form-item">
+      <view class="form-label">姓名</view>
+      <input class="form-input" value="{{studentForm.name}}" data-field="name" bindinput="onStudentInput" />
+    </view>
+    <view class="form-item">
+      <view class="form-label">学号</view>
+      <input class="form-input" value="{{studentForm.student_no}}" data-field="student_no" bindinput="onStudentInput" />
+    </view>
+    <view class="form-item">
+      <view class="form-label">手机号</view>
+      <input class="form-input" type="number" value="{{studentForm.phone}}" data-field="phone" bindinput="onStudentInput" />
+    </view>
+    <view class="form-item">
+      <view class="form-label">学院</view>
+      <input class="form-input" value="{{studentForm.college}}" data-field="college" bindinput="onStudentInput" />
+    </view>
+    <view class="row" style="gap: 16rpx;">
+      <view class="btn plain" style="flex:1;" bindtap="cancelEdit">取消</view>
+      <view class="btn" style="flex:1;" bindtap="saveStudent">保存</view>
+    </view>
+  </view>
+</view>

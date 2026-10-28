@@ -1,0 +1,4 @@
+.arrow {
+  color: #bbb;
+  font-size: 36rpx;
+}

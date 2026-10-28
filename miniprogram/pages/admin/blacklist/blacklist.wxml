@@ -1,0 +1,33 @@
+<view class="container">
+  <view class="btn" bindtap="toggleAdd">{{showAdd ? '收起' : '+ 手动拉黑'}}</view>
+
+  <view class="card" wx:if="{{showAdd}}">
+    <view class="form-item">
+      <view class="form-label">学生 openid</view>
+      <input class="form-input" value="{{addForm.student_openid}}" data-field="student_openid" bindinput="onInput" placeholder="输入学生 openid" />
+    </view>
+    <view class="form-item">
+      <view class="form-label">拉黑天数</view>
+      <input class="form-input" type="number" value="{{addForm.duration_days}}" data-field="duration_days" bindinput="onInput" />
+    </view>
+    <view class="form-item">
+      <view class="form-label">原因</view>
+      <input class="form-input" value="{{addForm.reason}}" data-field="reason" bindinput="onInput" placeholder="拉黑原因" />
+    </view>
+    <view class="btn" bindtap="submitAdd">确认拉黑</view>
+  </view>
+
+  <view class="card" wx:for="{{list}}" wx:key="_id">
+    <view class="space-between">
+      <text style="font-weight: 600;">{{item.student_name || item.student_openid}}</text>
+      <text class="tag {{item.status === 'active' ? 'red' : 'gray'}}">{{item.status === 'active' ? '生效中' : '已解除'}}</text>
+    </view>
+    <view class="text-muted" style="margin-top: 8rpx;">渠道：{{item.channel === 'auto' ? '爽约自动' : '手动'}}</view>
+    <view class="text-muted">原因：{{item.reason}}</view>
+    <view class="text-muted">拉黑：{{item.startText}} 至 {{item.endText}}</view>
+    <view class="row" style="justify-content: flex-end; margin-top: 12rpx;" wx:if="{{role >= 3 && item.status === 'active'}}">
+      <view class="btn danger" style="padding: 8rpx 24rpx;" data-id="{{item._id}}" bindtap="release">解除拉黑</view>
+    </view>
+  </view>
+  <view class="empty" wx:if="{{!list.length}}">暂无黑名单记录</view>
+</view>

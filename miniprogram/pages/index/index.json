@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "体育馆预约",
+  "usingComponents": {
+    "notice-modal": "/components/notice-modal/notice-modal"
+  }
+}

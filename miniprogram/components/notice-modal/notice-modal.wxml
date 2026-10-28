@@ -1,0 +1,12 @@
+<view class="mask" wx:if="{{show}}">
+  <view class="modal">
+    <view class="modal-title">{{notice.title}}</view>
+    <scroll-view scroll-y class="modal-content">
+      <text>{{notice.content}}</text>
+    </scroll-view>
+    <view class="modal-actions">
+      <button class="modal-btn" bindtap="onDetail">查看详情</button>
+      <button class="modal-btn primary" bindtap="onClose">我知道了</button>
+    </view>
+  </view>
+</view>

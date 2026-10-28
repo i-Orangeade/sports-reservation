@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="btn" bindtap="scan">扫学生二维码</view>
+
+  <view class="card" wx:if="{{scanResult}}">
+    <view class="card-title">学生信息</view>
+    <view class="info-row"><text>姓名：</text><text>{{scanResult.student.name}}</text></view>
+    <view class="info-row"><text>学号：</text><text>{{scanResult.student.student_no}}</text></view>
+
+    <view class="card-title" style="margin-top: 20rpx;">预约信息</view>
+    <view class="info-row"><text>场馆：</text><text>{{scanResult.booking.venue_type_name}}</text></view>
+    <view class="info-row"><text>场地：</text><text>{{scanResult.booking.court_no}} 号</text></view>
+    <view class="info-row"><text>场次：</text><text>{{scanResult.booking.start_time}} ~ {{scanResult.booking.end_time}}</text></view>
+    <view class="info-row"><text>日期：</text><text>{{scanResult.booking.date}}</text></view>
+
+    <view class="card-title" style="margin-top: 20rpx;">附属人员</view>
+    <view class="companion" wx:for="{{companions}}" wx:key="index">
+      <input class="form-input" style="flex:1;" placeholder="姓名" value="{{item.name}}" data-index="{{index}}" data-field="name" bindinput="onCompanionInput" />
+      <input class="form-input" style="flex:1; margin-left: 12rpx;" placeholder="手机号（选填）" value="{{item.phone}}" data-index="{{index}}" data-field="phone" bindinput="onCompanionInput" />
+      <view class="rm" data-index="{{index}}" bindtap="removeCompanion">删</view>
+    </view>
+    <view class="btn plain" style="margin-top: 12rpx;" bindtap="addCompanion">+ 添加附属人员</view>
+
+    <view class="btn {{checking ? 'disabled' : ''}}" style="margin-top: 24rpx;" bindtap="confirm">确认签到</view>
+  </view>
+
+  <view class="empty" wx:if="{{!scanResult}}">请扫描学生动态二维码</view>
+</view>

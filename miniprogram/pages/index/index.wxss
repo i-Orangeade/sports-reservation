@@ -1,0 +1,44 @@
+.venue-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.venue-card {
+  width: 31%;
+  background: #1f7a4d;
+  color: #fff;
+  border-radius: 16rpx;
+  padding: 32rpx 20rpx;
+  text-align: center;
+  margin-bottom: 24rpx;
+}
+
+.venue-name {
+  font-size: 32rpx;
+  font-weight: 600;
+}
+
+.venue-count {
+  font-size: 24rpx;
+  margin-top: 8rpx;
+  opacity: 0.9;
+}
+
+.quick-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f0f0f0;
+  font-size: 30rpx;
+}
+
+.quick-row:last-child {
+  border-bottom: none;
+}
+
+.arrow {
+  color: #bbb;
+  font-size: 36rpx;
+}

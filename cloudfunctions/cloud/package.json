@@ -1,0 +1,14 @@
+{
+  "name": "cloud",
+  "version": "1.0.0",
+  "description": "体育馆预约小程序 - 单云函数统一入口",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

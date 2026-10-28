@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="card">
+    <view class="row" style="justify-content: space-between;">
+      <view>
+        <view style="font-size: 36rpx; font-weight: 600;">{{user.name || '未完善信息'}}</view>
+        <view class="text-muted" style="margin-top: 8rpx;">{{roleName}}</view>
+      </view>
+      <view class="tag green" bindtap="goProfile">编辑</view>
+    </view>
+  </view>
+
+  <view class="banner" wx:if="{{blackDays > 0}}">您已被限制预约，{{blackDays}} 天内不可预约场馆</view>
+
+  <view class="card">
+    <view class="cell" bindtap="goQrcode"><text>我的动态二维码</text><text class="arrow">›</text></view>
+    <view class="cell" bindtap="goReservations"><text>我的预约</text><text class="arrow">›</text></view>
+    <view class="cell" bindtap="goRecords"><text>近7天记录</text><text class="arrow">›</text></view>
+    <view class="cell" bindtap="goNotice"><text>公告</text><text class="arrow">›</text></view>
+    <view class="cell" bindtap="goProfile"><text>完善个人信息</text><text class="arrow">›</text></view>
+  </view>
+
+  <view class="card" wx:if="{{role >= 2}}">
+    <view class="cell" bindtap="goAdmin">
+      <text style="font-weight: 600;">管理后台</text>
+      <text class="arrow">›</text>
+    </view>
+  </view>
+</view>

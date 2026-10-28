@@ -1,0 +1,18 @@
+.info-row {
+  display: flex;
+  padding: 12rpx 0;
+  font-size: 28rpx;
+  color: #555;
+}
+
+.companion {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.rm {
+  color: #d9534f;
+  margin-left: 12rpx;
+  font-size: 26rpx;
+}

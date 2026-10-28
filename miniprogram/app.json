@@ -1,0 +1,53 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/guide/guide",
+    "pages/mine/mine",
+    "pages/booking/booking",
+    "pages/qrcode/qrcode",
+    "pages/my-reservations/my-reservations",
+    "pages/records/records",
+    "pages/notice/notice",
+    "pages/profile/profile",
+    "pages/admin/admin",
+    "pages/admin/checkin/checkin",
+    "pages/admin/blacklist/blacklist",
+    "pages/admin/notice-mgr/notice-mgr",
+    "pages/admin/checkin-records/checkin-records",
+    "pages/admin/venue-close/venue-close",
+    "pages/admin/logs/logs",
+    "pages/admin/hr/hr"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1f7a4d",
+    "navigationBarTitleText": "体育馆预约",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f5f6f7"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#1f7a4d",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "预约"
+      },
+      {
+        "pagePath": "pages/guide/guide",
+        "text": "预约须知"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "notice-modal": "/components/notice-modal/notice-modal"
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}
